@@ -3,8 +3,8 @@ import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../dummy_data/dummy_objects_movie.dart';
-import '../../helpers/test_helper_movie.mocks.dart';
+import '../../../dummy_data/movie/dummy_objects_movie.dart';
+import '../../../helpers/movie/test_helper_movie.mocks.dart';
 
 void main() {
   late MovieLocalDataSourceImpl dataSource;

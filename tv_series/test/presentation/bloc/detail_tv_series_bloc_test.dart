@@ -64,7 +64,7 @@ void main() {
   );
   final tTVSeries1 = <TVSeries>[tTVSeries];
 
-  final tTVSeriesDetail = TVSeriesDetail(
+  const tTVSeriesDetail = TVSeriesDetail(
     backdropPath: 'backdropPath',
     genres: [Genre(id: 1, name: 'Comedy')],
     id: 1,
@@ -81,24 +81,24 @@ void main() {
       'Shoud emit TVSeriesDetail, Recomendations, MovieDetail and Recomendation when get  Detail TV Series and Recommendation Success',
       build: () {
         when(mockGetTVSeriesDetail.execute(tId))
-            .thenAnswer((_) async => Right(tTVSeriesDetail));
+            .thenAnswer((_) async => const Right(tTVSeriesDetail));
         when(mockGetTVSeriesRecommendations.execute(tId))
             .thenAnswer((_) async => Right(tTVSeries1));
         return detailBloc;
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesRecommendationState: RequestState.Loading,
+          tvSeriesRecommendationState: RequestState.loading,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesRecommendationState: RequestState.Loaded,
+          tvSeriesRecommendationState: RequestState.loaded,
           tvSeriesRecommendations: tTVSeries1,
           message: '',
         ),
@@ -113,24 +113,24 @@ void main() {
       'Shoud emit Detail TVSeries, Recomendations, DetailLoaded and RecommendationError when Get MovieRecommendations Failed',
       build: () {
         when(mockGetTVSeriesDetail.execute(tId))
-            .thenAnswer((_) async => Right(tTVSeriesDetail));
+            .thenAnswer((_) async => const Right(tTVSeriesDetail));
         when(mockGetTVSeriesRecommendations.execute(tId))
-            .thenAnswer((_) async => Left(ConnectionFailure('Failed')));
+            .thenAnswer((_) async => const Left(ConnectionFailure('Failed')));
         return detailBloc;
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesRecommendationState: RequestState.Loading,
+          tvSeriesRecommendationState: RequestState.loading,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesRecommendationState: RequestState.Error,
+          tvSeriesRecommendationState: RequestState.error,
           message: 'Failed',
         ),
       ],
@@ -144,16 +144,16 @@ void main() {
       'Shoud emit TV Series Detail Error when Get TV Series Detail Failed',
       build: () {
         when(mockGetTVSeriesDetail.execute(tId))
-            .thenAnswer((_) async => Left(ConnectionFailure('Failed')));
+            .thenAnswer((_) async => const Left(ConnectionFailure('Failed')));
         when(mockGetTVSeriesRecommendations.execute(tId))
             .thenAnswer((_) async => Right(tTVSeries1));
         return detailBloc;
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-            tvSeriesDetailState: RequestState.Error, message: 'Failed'),
+            tvSeriesDetailState: RequestState.error, message: 'Failed'),
       ],
       verify: (_) {
         verify(mockGetTVSeriesDetail.execute(tId));
@@ -172,7 +172,7 @@ void main() {
             .thenAnswer((_) async => true);
         return detailBloc;
       },
-      act: (bloc) => bloc.add(AddWatchlist(tTVSeriesDetail)),
+      act: (bloc) => bloc.add(const AddWatchlist(tTVSeriesDetail)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(watchlistMessage: 'Added to Watchlist'),
         tvSeriesDetailStateInit.copyWith(
@@ -188,12 +188,12 @@ void main() {
       'Shoud emit watchlistMessage when Failed',
       build: () {
         when(mockSaveWatchlist.execute(tTVSeriesDetail))
-            .thenAnswer((_) async => Left(DatabaseFailure('Failed')));
+            .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
         when(mockGetWatchlistStatus.execute(tTVSeriesDetail.id))
             .thenAnswer((_) async => false);
         return detailBloc;
       },
-      act: (bloc) => bloc.add(AddWatchlist(tTVSeriesDetail)),
+      act: (bloc) => bloc.add(const AddWatchlist(tTVSeriesDetail)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(watchlistMessage: 'Failed'),
       ],
@@ -209,12 +209,12 @@ void main() {
       'Shoud emit watchlistMessage when Failed',
       build: () {
         when(mockRemoveWatchlist.execute(tTVSeriesDetail))
-            .thenAnswer((_) async => Left(DatabaseFailure('Failed')));
+            .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
         when(mockGetWatchlistStatus.execute(tTVSeriesDetail.id))
             .thenAnswer((_) async => false);
         return detailBloc;
       },
-      act: (bloc) => bloc.add(RemoveWatchlist(tTVSeriesDetail)),
+      act: (bloc) => bloc.add(const RemoveWatchlist(tTVSeriesDetail)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(watchlistMessage: 'Failed'),
       ],

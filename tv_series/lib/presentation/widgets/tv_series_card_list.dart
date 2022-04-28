@@ -7,7 +7,7 @@ import '../../presentation/pages/tv_series_detail_page.dart';
 class TVSeriesCard extends StatelessWidget {
   final TVSeries tvSeries;
 
-  TVSeriesCard(this.tvSeries);
+  const TVSeriesCard(this.tvSeries, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class TVSeriesCard extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TVSeriesDetailPage.ROUTE_NAME,
+            TVSeriesDetailPage.routeName,
             arguments: tvSeries.id,
           );
         },
@@ -40,7 +40,7 @@ class TVSeriesCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       tvSeries.overview ?? '-',
                       maxLines: 2,
@@ -57,14 +57,14 @@ class TVSeriesCard extends StatelessWidget {
               ),
               child: ClipRRect(
                 child: CachedNetworkImage(
-                  imageUrl: '$BASE_IMAGE_URL${tvSeries.posterPath}',
+                  imageUrl: '$baseUrlimage${tvSeries.posterPath}',
                   width: 80,
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
             ),
           ],

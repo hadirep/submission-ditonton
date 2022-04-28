@@ -14,7 +14,7 @@ import '../bloc/detail_tv_series_event.dart';
 import '../bloc/detail_tv_series_state.dart';
 
 class TVSeriesDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/tv_series_detail_page';
+  static const routeName = '/tv_series_detail_page';
 
   final int id;
   const TVSeriesDetailPage({Key? key, required this.id}) : super(key: key);
@@ -62,11 +62,11 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
         previousState.watchlistMessage != currentState.watchlistMessage &&
             currentState.watchlistMessage != '',
         builder: (context, state) {
-          if (state.tvSeriesDetailState == RequestState.Loading) {
+          if (state.tvSeriesDetailState == RequestState.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state.tvSeriesDetailState == RequestState.Loaded &&
+          } else if (state.tvSeriesDetailState == RequestState.loaded &&
               state.tvSeriesRecommendations != []) {
             final movie = state.tvSeriesDetail!;
             return SafeArea(
@@ -76,7 +76,7 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
                 state.isAddedToWatchlist,
               ),
             );
-          } else if (state.tvSeriesDetailState == RequestState.Error) {
+          } else if (state.tvSeriesDetailState == RequestState.error) {
             final result = state.message;
             return Text(result);
           } else {
@@ -190,15 +190,15 @@ class TVSeriesDetailContent extends StatelessWidget {
                             BlocBuilder<DetailTVSeriesBloc, DetailTVSeriesState>(
                               builder: (context, state) {
                                 if (state.tvSeriesRecommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (state.tvSeriesRecommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(state.message);
                                 } else if (state.tvSeriesRecommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
@@ -211,7 +211,7 @@ class TVSeriesDetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TVSeriesDetailPage.ROUTE_NAME,
+                                                TVSeriesDetailPage.routeName,
                                                 arguments: tvSeries.id
                                               );
                                             },

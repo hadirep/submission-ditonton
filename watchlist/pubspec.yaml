@@ -23,6 +23,7 @@ dependencies:
     path: ../about
   dartz: ^0.10.1
   flutter_bloc: ^8.0.1
+  firebase_crashlytics: ^2.6.3
 
 dev_dependencies:
   flutter_test:

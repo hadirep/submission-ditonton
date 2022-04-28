@@ -26,6 +26,9 @@ dependencies:
   get_it: ^7.2.0
   flutter_bloc: ^8.0.1
   rxdart: ^0.27.3
+  firebase_core: ^1.15.0
+  firebase_crashlytics: ^2.6.3
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:
@@ -39,3 +42,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - certificates/

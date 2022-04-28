@@ -5,7 +5,9 @@ import '../bloc/tv_series_state.dart';
 import '../bloc/tv_series_event.dart';
 import '../bloc/top_rated_tv_series_bloc.dart';
 class TopRatedTVSeriesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/top-rated-tv-series-page';
+  static const routeName = '/top-rated-tv-series-page';
+
+  const TopRatedTVSeriesPage({Key? key}) : super(key: key);
 
   @override
   _TopRatedTVSeriesPageState createState() => _TopRatedTVSeriesPageState();
@@ -22,7 +24,7 @@ class _TopRatedTVSeriesPageState extends State<TopRatedTVSeriesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top Rated TV Series'),
+        title: const Text('Top Rated TV Series'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),

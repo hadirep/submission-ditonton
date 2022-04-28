@@ -7,7 +7,7 @@ import '../../bloc/tv_series/watchlist_tv_series_event.dart';
 import '../../bloc/tv_series/watchlist_tv_series_state.dart';
 
 class WatchlistTVSeriesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-tv-series';
+  static const routeName = '/watchlist-tv-series';
 
   const WatchlistTVSeriesPage({Key? key}) : super(key: key);
 

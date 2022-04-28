@@ -3,9 +3,9 @@ import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tTVSeriesModel = TVSeriesModel(
+  const tTVSeriesModel = TVSeriesModel(
     backdropPath: 'backdropPath',
-    genreIds: const [1, 2, 3],
+    genreIds: [1, 2, 3],
     id: 1,
     name: 'name',
     overview: 'overview',

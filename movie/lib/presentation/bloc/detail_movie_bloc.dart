@@ -23,33 +23,33 @@ class DetailMovieBloc extends Bloc<DetailMovieEvent, DetailMovieState> {
       this.removeWatchlist) : super(DetailMovieState.initial()) {
         on<OnDetailChanged>(
           (event, emit) async {
-            emit(state.copyWith(movieDetailState: RequestState.Loading));
+            emit(state.copyWith(movieDetailState: RequestState.loading));
           final result = await getMovieDetail.execute(event.id);
           final recomendationMovie = await getMovieRecommendations.execute(event.id);
 
           result.fold(
             (failure) {
               emit(state.copyWith(
-                movieDetailState: RequestState.Error,
+                movieDetailState: RequestState.error,
                 message: failure.message,
               ));
             },
             (detailMovie) {
               emit(state.copyWith(
-                movieRecommendationState: RequestState.Loading,
+                movieRecommendationState: RequestState.loading,
                 message: '',
-                movieDetailState: RequestState.Loaded,
+                movieDetailState: RequestState.loaded,
                 movieDetail: detailMovie,
               ));
             recomendationMovie.fold((failure) {
               emit(state.copyWith(
-                movieRecommendationState: RequestState.Error,
+                movieRecommendationState: RequestState.error,
                 message: failure.message,
               ));
             },(recomendations) {
               emit(state.copyWith(
                 movieRecommendations: recomendations,
-                movieRecommendationState: RequestState.Loaded,
+                movieRecommendationState: RequestState.loaded,
                 message: '',
               ));
             });

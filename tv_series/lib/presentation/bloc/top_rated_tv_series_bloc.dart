@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rxdart/rxdart.dart';
 import '../bloc/tv_series_event.dart';
 import '../bloc/tv_series_state.dart';
 import '../../domain/usecases/get_top_rated_tv_series.dart';

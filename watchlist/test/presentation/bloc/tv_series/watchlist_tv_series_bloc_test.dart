@@ -67,7 +67,7 @@ void main() {
     'Should emit [WatchlistLoading, WatchlistError] when data is unsuccessful',
     build: () {
       when(mockGetWatchlistTVSeries.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return watchlistBloc;
     },
     act: (bloc) => bloc.add(WatchlistTVSeries()),

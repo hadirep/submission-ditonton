@@ -7,7 +7,7 @@ import '../../bloc/movie/watchlist_movie_event.dart';
 import '../../bloc/movie/watchlist_movie_state.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-movie';
+  static const routeName = '/watchlist-movie';
 
   const WatchlistMoviesPage({Key? key}) : super(key: key);
 

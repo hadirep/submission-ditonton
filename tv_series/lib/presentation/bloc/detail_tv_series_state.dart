@@ -50,8 +50,8 @@ class DetailTVSeriesState extends Equatable {
     return const DetailTVSeriesState(
       tvSeriesDetail: null,
       tvSeriesRecommendations: [],
-      tvSeriesDetailState: RequestState.Empty,
-      tvSeriesRecommendationState: RequestState.Empty,
+      tvSeriesDetailState: RequestState.empty,
+      tvSeriesRecommendationState: RequestState.empty,
       message: '',
       watchlistMessage: '',
       isAddedToWatchlist: false,

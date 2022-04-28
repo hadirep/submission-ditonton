@@ -88,17 +88,17 @@ void main() {
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesRecommendationState: RequestState.Loading,
+          tvSeriesRecommendationState: RequestState.loading,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesRecommendationState: RequestState.Loaded,
+          tvSeriesRecommendationState: RequestState.loaded,
           tvSeriesRecommendations: tTVSeries1,
           message: '',
         ),
@@ -120,17 +120,17 @@ void main() {
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesRecommendationState: RequestState.Loading,
+          tvSeriesRecommendationState: RequestState.loading,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          tvSeriesDetailState: RequestState.Loaded,
+          tvSeriesDetailState: RequestState.loaded,
           tvSeriesDetail: tTVSeriesDetail,
-          tvSeriesRecommendationState: RequestState.Error,
+          tvSeriesRecommendationState: RequestState.error,
           message: 'Failed',
         ),
       ],
@@ -151,9 +151,9 @@ void main() {
       },
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
-        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.Loading),
+        tvSeriesDetailStateInit.copyWith(tvSeriesDetailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-            tvSeriesDetailState: RequestState.Error, message: 'Failed'),
+            tvSeriesDetailState: RequestState.error, message: 'Failed'),
       ],
       verify: (_) {
         verify(mockGetTVSeriesDetail.execute(tId));

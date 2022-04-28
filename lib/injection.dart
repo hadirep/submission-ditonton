@@ -3,7 +3,7 @@ import 'package:movie/movie_injection.dart';
 import 'package:search/search.dart';
 import 'package:tv_series/tv_series_injection.dart';
 import 'package:watchlist/watchlist_injection.dart';
-import 'package:http/http.dart' as http;
+import 'package:core/core.dart';
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
@@ -130,6 +130,6 @@ void init() {
   locator.registerLazySingleton<DatabaseHelperTVSeries>(() => DatabaseHelperTVSeries());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
   locator.registerLazySingleton(() => InternetConnectionChecker());
 }

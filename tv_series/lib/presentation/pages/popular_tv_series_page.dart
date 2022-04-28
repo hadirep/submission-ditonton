@@ -6,7 +6,7 @@ import '../bloc/tv_series_event.dart';
 import '../bloc/popular_tv_series_bloc.dart';
 
 class PopularTVSeriesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-tv-series-page';
+  static const routeName = '/popular-tv-series-page';
 
   const PopularTVSeriesPage({Key? key}) : super(key: key);
 

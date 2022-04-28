@@ -61,7 +61,7 @@ void main() {
     'Should emit [Loading, Error] when get top rated tv series is unsuccessful',
     build: () {
       when(mockGetTopRatedTVSeries.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return topRatedBloc;
     },
     act: (bloc) => bloc.add(OnTVSeriesChanged()),

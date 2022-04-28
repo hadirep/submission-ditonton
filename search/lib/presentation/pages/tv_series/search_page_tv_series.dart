@@ -5,13 +5,15 @@ import 'package:search/presentation/bloc/tv_series/search_tv_series_bloc.dart';
 import 'package:tv_series/presentation/widgets/tv_series_card_list.dart';
 
 class SearchPageTVSeries extends StatelessWidget {
-  static const ROUTE_NAME = '/search-tv-series-page';
+  static const routeName = '/search-tv-series-page';
+
+  const SearchPageTVSeries({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: const Text('Search'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -22,14 +24,14 @@ class SearchPageTVSeries extends StatelessWidget {
               onChanged: (query) {
                 context.read<SearchTVSeriesBloc>().add(OnTVSeriesQueryChanged(query));
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               textInputAction: TextInputAction.search,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Search Result',
               style: kHeading6,
@@ -37,7 +39,7 @@ class SearchPageTVSeries extends StatelessWidget {
             BlocBuilder<SearchTVSeriesBloc, SearchTVSeriesState>(
               builder: (context, state) {
                 if (state is SearchTVSeriesLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is SearchTVSeriesHasData) {

@@ -74,7 +74,7 @@ void main() {
       'Should emit [Loading, Error] when get now playing tv series list is unsuccessful',
       build: () {
         when(mockGetNowPlayingTVSeries.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return listBloc;
       },
       act: (bloc) => bloc.add(OnTVSeriesChanged()),
@@ -115,7 +115,7 @@ void main() {
       'Should emit [Loading, Error] when get popular tv series list is unsuccessful',
       build: () {
         when(mockGetPopularTVSeries.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return popularBloc;
       },
       act: (bloc) => bloc.add(OnTVSeriesChanged()),
@@ -156,7 +156,7 @@ void main() {
       'Should emit [Loading, Error] when get top rated tv series list is unsuccessful',
       build: () {
         when(mockGetTopRatedTVSeries.execute())
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return topRatedBloc;
       },
       act: (bloc) => bloc.add(OnTVSeriesChanged()),

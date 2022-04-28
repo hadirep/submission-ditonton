@@ -22,7 +22,7 @@ void main() {
 
   final tTVSeriesModel = TVSeries(
     backdropPath: '/rQGBjWNveVeF8f2PGRtS85w9o9r.jpg',
-    genreIds: [18, 9648],
+    genreIds: const [18, 9648],
     id: 31917,
     name: 'Pretty Little Liars',
     overview:
@@ -33,7 +33,7 @@ void main() {
     voteCount: 133,
   );
   final tTVSeriesList = <TVSeries>[tTVSeriesModel];
-  final tQuery = 'pretty';
+  const tQuery = 'pretty';
 
   test('initial state should be empty', () {
     expect(searchBloc.state, SearchTVSeriesEmpty());
@@ -46,7 +46,7 @@ void main() {
           .thenAnswer((_) async => Right(tTVSeriesList));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnTVSeriesQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnTVSeriesQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 1200),
     expect: () => [
       SearchTVSeriesLoading(),
@@ -61,14 +61,14 @@ void main() {
     'Should emit [Loading, Error] when get search is unsuccessful',
     build: () {
       when(mockSearchTVSeries.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnTVSeriesQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnTVSeriesQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 1200),
     expect: () => [
       SearchTVSeriesLoading(),
-      SearchTVSeriesError('Server Failure'),
+      const SearchTVSeriesError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockSearchTVSeries.execute(tQuery));

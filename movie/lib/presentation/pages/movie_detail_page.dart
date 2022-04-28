@@ -14,7 +14,7 @@ import '../bloc/detail_movie_event.dart';
 import '../bloc/detail_movie_state.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail';
+  static const routeName = '/detail';
 
   final int id;
   const MovieDetailPage({Key? key, required this.id}) : super(key: key);
@@ -62,11 +62,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
         previousState.watchlistMessage != currentState.watchlistMessage &&
             currentState.watchlistMessage != '',
         builder: (context, state) {
-          if (state.movieDetailState == RequestState.Loading) {
+          if (state.movieDetailState == RequestState.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state.movieDetailState == RequestState.Loaded &&
+          } else if (state.movieDetailState == RequestState.loaded &&
               state.movieRecommendations != []) {
             final movie = state.movieDetail!;
             return SafeArea(
@@ -76,7 +76,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 state.isAddedToWatchlist,
               ),
             );
-          } else if (state.movieDetailState == RequestState.Error) {
+          } else if (state.movieDetailState == RequestState.error) {
             final result = state.message;
             return Text(result);
           } else {
@@ -193,15 +193,15 @@ class MovieDetailContent extends StatelessWidget {
                             BlocBuilder<DetailMovieBloc, DetailMovieState>(
                               builder: (context, state) {
                                 if (state.movieRecommendationState ==
-                                    RequestState.Loading) {
+                                    RequestState.loading) {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
                                 } else if (state.movieRecommendationState ==
-                                    RequestState.Error) {
+                                    RequestState.error) {
                                   return Text(state.message);
                                 } else if (state.movieRecommendationState ==
-                                    RequestState.Loaded) {
+                                    RequestState.loaded) {
                                   return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
@@ -214,7 +214,7 @@ class MovieDetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                MovieDetailPage.ROUTE_NAME,
+                                                MovieDetailPage.routeName,
                                                 arguments: movie.id,
                                               );
                                             },

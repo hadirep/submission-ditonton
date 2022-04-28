@@ -4,7 +4,7 @@ import '../../data/models/tv_series_model.dart';
 class TVSeriesResponse extends Equatable {
   final List<TVSeriesModel> tvSeriesList;
 
-  TVSeriesResponse({required this.tvSeriesList});
+  const TVSeriesResponse({required this.tvSeriesList});
 
   factory TVSeriesResponse.fromJson(Map<String, dynamic> json) => TVSeriesResponse(
     tvSeriesList: List<TVSeriesModel>.from((json["results"] as List)

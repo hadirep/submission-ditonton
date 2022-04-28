@@ -23,33 +23,33 @@ class DetailTVSeriesBloc extends Bloc<DetailTVSeriesEvent, DetailTVSeriesState> 
       this.removeWatchlist) : super(DetailTVSeriesState.initial()) {
         on<OnDetailChanged>(
           (event, emit) async {
-          emit(state.copyWith(tvSeriesDetailState: RequestState.Loading));
+          emit(state.copyWith(tvSeriesDetailState: RequestState.loading));
           final result = await getTVSeriesDetail.execute(event.id);
           final recomendationTVSeries = await getTVSeriesRecommendations.execute(event.id);
 
           result.fold(
                 (failure) {
               emit(state.copyWith(
-                tvSeriesDetailState: RequestState.Error,
+                tvSeriesDetailState: RequestState.error,
                 message: failure.message,
               ));
             },
                 (detailTVSeries) {
               emit(state.copyWith(
-                tvSeriesRecommendationState: RequestState.Loading,
+                tvSeriesRecommendationState: RequestState.loading,
                 message: '',
-                tvSeriesDetailState: RequestState.Loaded,
+                tvSeriesDetailState: RequestState.loaded,
                 tvSeriesDetail: detailTVSeries,
               ));
               recomendationTVSeries.fold((failure) {
                 emit(state.copyWith(
-                  tvSeriesRecommendationState: RequestState.Error,
+                  tvSeriesRecommendationState: RequestState.error,
                   message: failure.message,
                 ));
               },(recomendations) {
                   emit(state.copyWith(
                   tvSeriesRecommendations: recomendations,
-                  tvSeriesRecommendationState: RequestState.Loaded,
+                  tvSeriesRecommendationState: RequestState.loaded,
                   message: '',
                   )
                 );

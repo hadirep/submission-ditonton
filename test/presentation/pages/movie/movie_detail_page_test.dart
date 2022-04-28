@@ -41,7 +41,7 @@ void main() {
   testWidgets('Page should display center progress bar when loading',
       (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(
-        DetailMovieState.initial().copyWith(movieDetailState: RequestState.Loading));
+        DetailMovieState.initial().copyWith(movieDetailState: RequestState.loading));
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
@@ -54,9 +54,9 @@ void main() {
       (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Loaded,
+          movieDetailState: RequestState.loaded,
           movieDetail: testMovieDetail,
-          movieRecommendationState: RequestState.Loading,
+          movieRecommendationState: RequestState.loading,
           movieRecommendations: <Movie>[],
           isAddedToWatchlist: false,
     ));
@@ -73,9 +73,9 @@ void main() {
       (WidgetTester tester) async {
       when(() => mockBloc.state).thenReturn(
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Loaded,
+          movieDetailState: RequestState.loaded,
           movieDetail: testMovieDetail,
-          movieRecommendationState: RequestState.Loaded,
+          movieRecommendationState: RequestState.loaded,
           movieRecommendations: [testMovie],
           isAddedToWatchlist: false,
         ));
@@ -92,9 +92,9 @@ void main() {
       (WidgetTester tester) async {
       when(() => mockBloc.state).thenReturn(
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Loaded,
+          movieDetailState: RequestState.loaded,
           movieDetail: testMovieDetail,
-          movieRecommendationState: RequestState.Loaded,
+          movieRecommendationState: RequestState.loaded,
           movieRecommendations: [testMovie],
           isAddedToWatchlist: true,
         )
@@ -114,16 +114,16 @@ void main() {
       mockBloc,
       Stream.fromIterable([
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Loaded,
+          movieDetailState: RequestState.loaded,
           movieDetail: testMovieDetail,
-          movieRecommendationState: RequestState.Loaded,
+          movieRecommendationState: RequestState.loaded,
           movieRecommendations: [testMovie],
           isAddedToWatchlist: false,
         ),
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Loaded,
+          movieDetailState: RequestState.loaded,
           movieDetail: testMovieDetail,
-          movieRecommendationState: RequestState.Loaded,
+          movieRecommendationState: RequestState.loaded,
           movieRecommendations: [testMovie],
           isAddedToWatchlist: false,
           watchlistMessage: 'Added to Watchlist',
@@ -151,16 +151,16 @@ void main() {
         mockBloc,
         Stream.fromIterable([
           DetailMovieState.initial().copyWith(
-            movieDetailState: RequestState.Loaded,
+            movieDetailState: RequestState.loaded,
             movieDetail: testMovieDetail,
-            movieRecommendationState: RequestState.Loaded,
+            movieRecommendationState: RequestState.loaded,
             movieRecommendations: [testMovie],
             isAddedToWatchlist: false,
           ),
           DetailMovieState.initial().copyWith(
-            movieDetailState: RequestState.Loaded,
+            movieDetailState: RequestState.loaded,
             movieDetail: testMovieDetail,
-            movieRecommendationState: RequestState.Loaded,
+            movieRecommendationState: RequestState.loaded,
             movieRecommendations: [testMovie],
             isAddedToWatchlist: false,
             watchlistMessage: 'Removed from Watchlist',
@@ -189,24 +189,24 @@ void main() {
         mockBloc,
         Stream.fromIterable([
           DetailMovieState.initial().copyWith(
-            movieDetailState: RequestState.Loaded,
+            movieDetailState: RequestState.loaded,
             movieDetail: testMovieDetail,
-            movieRecommendationState: RequestState.Loaded,
+            movieRecommendationState: RequestState.loaded,
             movieRecommendations: [testMovie],
             isAddedToWatchlist: false,
           ),
           DetailMovieState.initial().copyWith(
-            movieDetailState: RequestState.Loaded,
+            movieDetailState: RequestState.loaded,
             movieDetail: testMovieDetail,
-            movieRecommendationState: RequestState.Loaded,
+            movieRecommendationState: RequestState.loaded,
             movieRecommendations: [testMovie],
             isAddedToWatchlist: false,
             watchlistMessage: 'Failed',
           ),
           DetailMovieState.initial().copyWith(
-            movieDetailState: RequestState.Loaded,
+            movieDetailState: RequestState.loaded,
             movieDetail: testMovieDetail,
-            movieRecommendationState: RequestState.Loaded,
+            movieRecommendationState: RequestState.loaded,
             movieRecommendations: [testMovie],
             isAddedToWatchlist: false,
             watchlistMessage: 'Failed ',
@@ -233,7 +233,7 @@ void main() {
       (WidgetTester tester) async {
       when(() => mockBloc.state).thenReturn(
         DetailMovieState.initial().copyWith(
-          movieDetailState: RequestState.Error,
+          movieDetailState: RequestState.error,
           message: 'Failed to connect to the network'
         )
       );

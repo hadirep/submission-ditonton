@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:movie/data/models/movie_model.dart';
-import 'package:movie/data/models/movie_response.dart';
+import 'package:core/data/models/movie/movie_model.dart';
+import 'package:core/data/models/movie/movie_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../json_reader.dart';
@@ -28,7 +28,7 @@ void main() {
     test('should return a valid model from JSON', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-          json.decode(readJson('dummy_data/now_playing_movie.json'));
+          json.decode(readJson('dummy_data/movie/now_playing_movie.json'));
       // act
       final result = MovieResponse.fromJson(jsonMap);
       // assert

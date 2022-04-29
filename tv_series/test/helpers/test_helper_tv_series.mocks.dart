@@ -11,15 +11,15 @@ import 'package:dartz/dartz.dart' as _i2;
 import 'package:http/http.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i15;
-import 'package:tv_series/data/datasources/db/database_helper_tv_series.dart'
+import 'package:core/data/datasources/db/tv_series/database_helper_tv_series.dart'
     as _i14;
-import 'package:tv_series/data/datasources/tv_series_local_data_source.dart'
+import 'package:core/data/datasources/tv_series/tv_series_local_data_source.dart'
     as _i12;
-import 'package:tv_series/data/datasources/tv_series_remote_data_source.dart'
+import 'package:core/data/datasources/tv_series/tv_series_remote_data_source.dart'
     as _i10;
-import 'package:tv_series/data/models/tv_series_detail_model.dart' as _i3;
-import 'package:tv_series/data/models/tv_series_model.dart' as _i11;
-import 'package:tv_series/data/models/tv_series_table.dart' as _i13;
+import 'package:core/data/models/tv_series/tv_series_detail_model.dart' as _i3;
+import 'package:core/data/models/tv_series/tv_series_model.dart' as _i11;
+import 'package:core/data/models/tv_series/tv_series_table.dart' as _i13;
 import 'package:tv_series/domain/entities/tv_series.dart' as _i8;
 import 'package:tv_series/domain/entities/tv_series_detail.dart' as _i9;
 import 'package:tv_series/domain/repositories/tv_series_repository.dart' as _i5;

@@ -1,5 +1,5 @@
 import 'dart:async';
-import '../../models/tv_series_table.dart';
+import '../../../models/tv_series/tv_series_table.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelperTVSeries {

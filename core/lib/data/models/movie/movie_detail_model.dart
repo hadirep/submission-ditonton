@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:core/data/models/genre_model.dart';
-import '../../domain/entities/movie_detail.dart';
+import '../../models/genre_model.dart';
+import 'package:movie/domain/entities/movie_detail.dart';
 
 class MovieDetailResponse extends Equatable {
   const MovieDetailResponse({

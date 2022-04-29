@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:core/utils/exception.dart';
-import '../models/movie_detail_model.dart';
-import '../models/movie_model.dart';
-import '../models/movie_response.dart';
+import '../../../utils/exception.dart';
+import '../../models/movie/movie_detail_model.dart';
+import '../../models/movie/movie_model.dart';
+import '../../models/movie/movie_response.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getNowPlayingMovies();
@@ -25,7 +25,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
     final response =
-    await client.get(Uri.parse('www.google.com/'));
+    await client.get(Uri.parse('$baseUrl/movie/now_playing?$apiKey'));
 
     if (response.statusCode == 200) {
       return MovieResponse.fromJson(json.decode(response.body)).movieList;

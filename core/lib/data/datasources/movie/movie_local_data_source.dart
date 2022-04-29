@@ -1,6 +1,6 @@
 import 'package:core/utils/exception.dart';
-import '../datasources/db/database_helper_movie.dart';
-import '../../data/models/movie_table.dart';
+import '../db/movie/database_helper_movie.dart';
+import '../../models/movie/movie_table.dart';
 
 abstract class MovieLocalDataSource {
   Future<String> insertWatchlist(MovieTable movie);

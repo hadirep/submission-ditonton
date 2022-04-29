@@ -4,6 +4,7 @@ import 'package:search/search.dart';
 import 'package:tv_series/tv_series_injection.dart';
 import 'package:watchlist/watchlist_injection.dart';
 import 'package:core/core.dart';
+import 'package:core/core_injection.dart';
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;

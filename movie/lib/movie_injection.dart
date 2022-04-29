@@ -1,9 +1,5 @@
 library movie;
 
-export 'data/datasources/db/database_helper_movie.dart';
-export 'data/datasources/movie_local_data_source.dart';
-export 'data/datasources/movie_remote_data_source.dart';
-export 'data/repositories/movie_repository_impl.dart';
 export 'domain/repositories/movie_repository.dart';
 export 'domain/usecases/get_movie_detail.dart';
 export 'domain/usecases/get_movie_recommendations.dart';

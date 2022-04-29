@@ -1,5 +1,5 @@
 import 'package:core/utils/exception.dart';
-import 'package:movie/data/datasources/movie_local_data_source.dart';
+import 'package:core/data/datasources/movie/movie_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
